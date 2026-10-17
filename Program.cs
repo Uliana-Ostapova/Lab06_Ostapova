@@ -47,11 +47,11 @@
 
 // задание 4
 // string password;
+// bool flag = false;
 // do
 // {
 //     Console.Write("Введите пароль: ");
 //     password = Console.ReadLine();
-//     bool flag = false;
 //     for (int i = 1; i < 3; i++)
 //     {
 //         if (password == "qwerty")
@@ -66,6 +66,7 @@
 //     if (flag == false)
 //     {
 //         Console.WriteLine("Доступ заблокирован");
+//         break;
 //     }
 // }
 // while (password != "qwerty");
@@ -87,19 +88,37 @@
 
 // задание "угадай число"
 // int secret = 42;
-// int n = 0;
+// bool flag = false;
+// Console.Write("Угадайте число от 1 до 100: ");
 // for (int i = 1; i <= 5; i++) {
-//     int number = Convert.ToInt32(Console.ReadLine());
-//     if (number > 42) {
+//     int number = int.Parse(Console.ReadLine());
+//     if (number == secret)
+//     {
+//         Console.WriteLine($"Победа! Попыток: {i}");
+//         flag = true;
+//         break;
+//     } else if (number > 42) {
 //         Console.WriteLine("Меньше");
-//         n++;
 //     } else {
 //         Console.WriteLine("Больше");
-//         n++;
 //     }
 // }
-// if (number == secret) {
-//         Console.WriteLine($"Победа! Попыток: {n}");
-//     } else {
-//         Console.WriteLine("Вы проиграли, число было 42");
-//     }
+// if (flag == false)
+// {
+//     Console.WriteLine("Вы проиграли, число было 42");
+// }
+
+// дополнительное задание
+Console.Write("Введите целое положительное число: ");
+int n = int.Parse(Console.ReadLine());
+int sum = 0;
+int count = 0;
+while (n > 0)
+{
+    int number = n % 10;
+    sum += number;
+    count++;
+    n /= 10;
+}
+Console.WriteLine($"Сумма цифр числа: {sum}");
+Console.WriteLine($"Количество цифр числа: {count}");
